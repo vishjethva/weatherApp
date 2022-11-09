@@ -1,0 +1,44 @@
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Next Hours</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list class="set-item-width">
+        <ion-item class="set-hours-card">
+          <ion-label *ngFor="let weather of weatherList; let i = index" [ngClass]="{'setborder': i != (weatherList.length - 1) }">
+            <span item-start>{{ weather.wind?.deg }}°</span>
+            <p item-start>{{ weather.wind?.gust }}%</p>
+            <ion-thumbnail slot="start">
+              <img alt="weatherimg" src="http://openweathermap.org/img/wn/{{ weather.weather[0].icon }}.png" />
+            </ion-thumbnail>
+            <p item-start>{{ weather.dt_txt | date: "h:mm a" }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Next 5 days</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let weather of weatherList">
+          <ion-thumbnail slot="start">
+            <img alt="weatherimg" src="http://openweathermap.org/img/wn/{{
+              weather.weather[0].icon
+            }}.png" />
+          </ion-thumbnail>
+          <ion-label>
+            {{ weather.dt_txt | date: "EEEE, MMM d" }}
+            <p>{{ weather.weather[0].description }}</p>
+          </ion-label>
+          <span slot="end">{{ weather.wind?.deg }}°</span>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,58 @@
+:host {
+    .set-item-width{
+        ion-item{
+            width: 400px;
+            overflow-y: scroll;
+        }
+    }
+    .set-hours-card {
+        ion-label{
+            padding-right: 5px;
+            margin-right: 20px;
+            margin-left: 0px;
+            text-align: center;
+        }
+        .setborder{
+            box-shadow: 2px 0px 0px #9d9fa6;
+        }
+    }
+
+    ion-card {
+        margin-inline: -10px;
+
+        ion-card-header {
+            padding-inline: 15px;
+            padding: 15px;
+
+            ion-card-title {
+                font-size: 20px;
+            }
+        }
+
+        ion-card-content {
+            padding-inline-start: 0px;
+            -webkit-padding-end: 0px;
+            padding-inline-end: 0px;
+            padding: 1px;
+
+            ion-list {
+                ion-item {
+                    ion-thumbnail {
+                        margin-inline: -5px 5px;
+                        margin: 0px;
+                    }
+                }
+            }
+        }
+    }
+
+    ion-content {
+        --offset-bottom: auto !important;
+        --overflow: hidden;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

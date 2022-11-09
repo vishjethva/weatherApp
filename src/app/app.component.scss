@@ -1,0 +1,77 @@
+:host {
+  ion-content {
+    height: 86% !important;
+  }
+
+  ion-tabs {
+    ion-tab-bar {
+      .activeTab {
+        border-bottom: 3px solid red;
+      }
+
+      height: 45px;
+
+      ion-tab-button {
+        ion-label {
+          text-transform: uppercase;
+          color: black;
+          font-size: 7px;
+        }
+      }
+    }
+  }
+
+  ion-footer {
+    ion-toolbar {
+      --background: blue;
+      color: whitesmoke;
+      text-align: center;
+      --min-height: 32px;
+
+      ion-title {
+        font-size: 14px;
+        padding-inline: 0px;
+      }
+    }
+
+    ion-title {
+      -moz-animation: marquee 10s linear infinite;
+      -webkit-animation: marquee 10s linear infinite;
+      animation: marquee 10s linear infinite;
+    }
+
+    @-moz-keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    @-webkit-keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes marquee {
+      0% {
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%)
+      }
+
+      100% {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+      }
+    }
+  }
+}

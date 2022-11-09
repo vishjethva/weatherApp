@@ -1,0 +1,38 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar>
+    <ion-searchbar *ngIf="showSearchBox" color="light" animated="true" type="text" color="light"
+      placeholder="Search by city" clearInput [debounce]="1000" (ionChange)="handleSearchChange($event)"></ion-searchbar>
+    <ion-title *ngIf="!showSearchBox">
+      {{title}}
+    </ion-title>
+    <ion-buttons *ngIf="!showSearchBox" slot="end" (click)="handleSetHideShowSearchBox()">
+      <ion-icon name="search" size="large"></ion-icon>
+    </ion-buttons>
+    <ion-buttons *ngIf="showSearchBox" slot="end" (click)="handleSetHideShowSearchBox()">
+      <ion-icon name="close-outline" size="large"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary" class="ion-padding">
+  <ion-refresher slot="fixed" [pullFactor]="0.5" [pullMin]="1" [pullMax]="200" (ionRefresh)="handleRefresh($event)">
+    <!-- <ion-refresher-content></ion-refresher-content> -->
+  </ion-refresher>
+  <ion-tabs *ngIf="searchValue == ''">
+    <ion-tab-bar slot="top">
+      <ion-tab-button *ngFor="let city of cityList" routerDirection="root"
+        [ngClass]="{'activeTab': activeCityName == city.id }" [routerLink]="[city.url]" lines="none" detail="false"
+        routerLinkActive="selected" (click)="handleSetActiveCityTab(city.id)">
+        <ion-label>{{city.id}}</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
+
+<ion-footer collapse="fade" [translucent]="false">
+  <ion-toolbar>
+    <ion-title>
+      Last Update on {{ lastUpdatedDate | date: "MMM dd h:mm" }}
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
